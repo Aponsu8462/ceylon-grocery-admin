@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Category from "@/models/category";
 import { connectToDB } from "@/utils/database";
 import { NextResponse } from "next/server";
@@ -10,6 +11,9 @@ export async function GET() {
     return NextResponse.json(modifiedCategories);
   } catch (error) {
     console.error("Error fetching categories from the database:", error);
-    return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
